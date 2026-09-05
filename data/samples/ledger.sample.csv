@@ -1,0 +1,4 @@
+invoice_no,customer_id,customer_name,issue_date,due_date,gross_amount,tax_amount,currency,status,reference
+INV-2026-04001,CUST-0002,Vermillion Textiles Enterprises,2026-03-23,2026-03-30,594.98,90.76,INR,paid,INV-2026-04001
+INV-2026-04002,CUST-0059,Neelkanth Pipes 2 LLP,2026-03-04,2026-04-18,17079.09,2605.28,INR,paid,INV-2026-04002
+INV-2026-04003,CUST-0039,Meridian Papers 2 and Sons,2026-03-13,2026-03-28,3846.81,586.80,INR,paid,INV-2026-04003

@@ -1,0 +1,143 @@
+@import 'tailwindcss';
+
+/*
+ * The subject is a ledger. Columns that must agree, fixed-width bank
+ * narrations, the tally. Colour appears only where it carries meaning.
+ */
+
+@theme {
+  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, 'Cascadia Mono', Menlo, monospace;
+}
+
+:root {
+  --paper: #fbfaf8;
+  --card: #ffffff;
+  --rule: #e4e1db;
+  --ink: #16181c;
+  --muted: #6b6d73;
+  --slate: #2f4858;
+  --sage: #43684a;
+  --amber: #a96c12;
+  --rust: #9a3b2e;
+  --sage-wash: #f0f4f0;
+  --amber-wash: #fbf5ea;
+  --rust-wash: #fbf0ee;
+  --slate-wash: #eef2f4;
+}
+
+:root:not([data-theme='light']) {
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --paper: #141517;
+    --card: #1b1d20;
+    --rule: #2a2d31;
+    --ink: #e8e6e1;
+    --muted: #9a9ca1;
+    --slate: #7fa6bd;
+    --sage: #7fb389;
+    --amber: #d9a05b;
+    --rust: #d98072;
+    --sage-wash: #1a231c;
+    --amber-wash: #241d10;
+    --rust-wash: #241614;
+    --slate-wash: #1a2229;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --paper: #141517;
+  --card: #1b1d20;
+  --rule: #2a2d31;
+  --ink: #e8e6e1;
+  --muted: #9a9ca1;
+  --slate: #7fa6bd;
+  --sage: #7fb389;
+  --amber: #d9a05b;
+  --rust: #d98072;
+  --sage-wash: #1a231c;
+  --amber-wash: #241d10;
+  --rust-wash: #241614;
+  --slate-wash: #1a2229;
+  color-scheme: dark;
+}
+
+* {
+  border-color: var(--rule);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-width: 1280px;
+}
+
+/* Every number and identifier is monospace, tabular, right-aligned. */
+.num,
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+.num {
+  text-align: right;
+}
+
+a {
+  color: var(--slate);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--slate);
+  outline-offset: 1px;
+}
+
+::selection {
+  background: var(--slate-wash);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th {
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--rule);
+  white-space: nowrap;
+}
+td {
+  padding: 0 12px;
+  height: 40px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: middle;
+}
+tbody tr:hover {
+  background: var(--paper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
